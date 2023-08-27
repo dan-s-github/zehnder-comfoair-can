@@ -1,0 +1,50 @@
+climate:
+  - platform: thermostat
+    name: 'Climate'
+    id: comfoair_climate
+    sensor: extract_air_temp
+    icon: mdi:air-filter
+    visual:
+      min_temperature: 18
+      max_temperature: 25
+      temperature_step: 0.5
+    min_heating_off_time: 1s
+    min_heating_run_time: 1s
+    min_cooling_off_time: 1s
+    min_cooling_run_time: 1s
+    min_idle_time: 1s
+    supplemental_cooling_delta: 0.5
+    max_cooling_run_time: 119min
+    supplemental_cooling_action:
+      # only boost if outdoor_air_temperature is 2 or more degrees lower than extract_air_temperature
+      - if:
+          condition:
+            lambda: return id(extract_air_temp).state - id(outdoor_air_temp).state > 2;
+          then:
+            - select.set:
+                id: fan_level_select
+                option: "Medium"
+    cool_deadband: 0.5
+    cool_overrun: 0.5
+    heat_deadband: 0.1
+    heat_overrun: 0.1
+    default_preset: Summer
+    preset:
+      - name: Summer
+        default_target_temperature_low: 20 °C
+        default_target_temperature_high: 21 °C
+      - name: Sleep
+        default_target_temperature_low: 19.5 °C
+        default_target_temperature_high: 20.5 °C
+    heat_action:
+      - select.set:
+          id: temperature_profile_select
+          option: "Warm"
+    idle_action:
+      - select.set:
+          id: temperature_profile_select
+          option: "Normal"
+    cool_action:
+      - select.set:
+          id: temperature_profile_select
+          option: "Cool"
