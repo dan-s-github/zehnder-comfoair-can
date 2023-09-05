@@ -16,27 +16,18 @@
   - multiply: 0.001
 
 sensor:
+
   - platform: template
     id: away_indicator_raw # PDO 16
+    name: 'away_indicator_raw'
     accuracy_decimals: 0
     on_value:
       then:
         - lambda: id(away_indicator).publish_state(x == 7);
-  - platform: template
-    id: heating_season_raw # PDO 210
-    accuracy_decimals: 0
-    on_value:
-      then:
-        - lambda: id(heating_season).publish_state(x == 1);
-  - platform: template
-    id: cooling_season_raw # PDO 211
-    accuracy_decimals: 0
-    on_value:
-      then:
-        - lambda: id(cooling_season).publish_state(x == 1);
 
   - platform: template
     id: fan_level_raw # PDO 65
+    name: 'fan_level_raw'
     accuracy_decimals: 0
     on_value:
       then:
@@ -50,6 +41,7 @@ sensor:
               - fan.turn_on:
                   id: comfoair_fan
                   speed: !lambda 'return int(x);'
+
   - platform: template
     id: next_fan_change_in_raw # PDO 81
     name: 'next_fan_change_in_raw'
@@ -166,6 +158,20 @@ sensor:
     device_class: temperature
     state_class: measurement
 
+  - platform: template
+    id: heating_season_raw # PDO 210
+    accuracy_decimals: 0
+    on_value:
+      then:
+        - lambda: id(heating_season).publish_state(x == 1);
+
+  - platform: template
+    id: cooling_season_raw # PDO 211
+    accuracy_decimals: 0
+    on_value:
+      then:
+        - lambda: id(cooling_season).publish_state(x == 1);
+ 
   - platform: template
     id: profile_target_temp # PDO 212
     name: 'Profile Target Temperature'

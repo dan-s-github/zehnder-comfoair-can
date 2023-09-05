@@ -1,6 +1,5 @@
 substitutions:
   name: zehnder-comfoair-esp32
-  device_name: ComfoAir
   filter_time: 5s
   filter_send_every: '1'
   filter_window_size: '3'
@@ -20,7 +19,7 @@ packages:
       - packages/switch.yml
       - packages/text_sensors.yml
       - packages/fan.yml
-      - cpackages/limate.yml
+      - packages/climate.yml
 
 esphome:
   name: ${name}

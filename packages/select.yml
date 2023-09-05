@@ -1,4 +1,5 @@
 select:
+
   - platform: template
     name: 'Fan Speed'
     id: fan_level_select
@@ -26,6 +27,7 @@ select:
               } else if (x == "High") {
                 id(comfoair)->set_ventilation_level(zehnder_comfoair_q::VENTILATION_LEVEL_HIGH);
               }
+
   - platform: template
     name: 'Temperature Profile'
     id: temperature_profile_select
@@ -50,6 +52,7 @@ select:
                 } else if (x == "Warm") {
                   id(comfoair)->set_temp_profile(zehnder_comfoair_q::TEMP_PROFILE_WARM);
                 }
+
   - platform: template
     name: 'Temperature Passive'
     id: temperature_passive_select
@@ -68,6 +71,7 @@ select:
           } else if (x == "On") {
             id(comfoair)->set_temperature_passive(zehnder_comfoair_q::OAO_ON);
           }
+
   - platform: template
     name: 'Humidity Comfort'
     id: humidity_comfort_select
@@ -85,6 +89,7 @@ select:
           } else if (x == "On") {
             id(comfoair)->set_humidity_comfort(zehnder_comfoair_q::OAO_ON);
           }
+          
   - platform: template
     name: 'Humidity Protection'
     id: humidity_protection_select

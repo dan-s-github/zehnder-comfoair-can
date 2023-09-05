@@ -1,4 +1,5 @@
 fan:
+  
   - platform: speed
     name: 'Fan'
     id: "comfoair_fan"
