@@ -1,5 +1,5 @@
 substitutions:
-  name: zehnder-comfoair-esp32
+  name: zehnder-comfoair-can
   filter_time: 5s
   filter_send_every: '1'
   filter_window_size: '3'
@@ -8,7 +8,7 @@ substitutions:
 
 packages:
   remote_package:
-    url: https://github.com/dan-s-github/zehnder-comfoair-esp32
+    url: https://github.com/dan-s-github/zehnder-comfoair-can
     ref: main
     files: 
       - packages/canbus.yml
@@ -23,7 +23,7 @@ packages:
 
 esphome:
   name: ${name}
-  friendly_name: Zehnder ComfoAir ESP32
+  friendly_name: Zehnder ComfoAir CAN
   comment: Zehnder ComfoAir Q350
 
 esp32:
@@ -38,7 +38,7 @@ logger:
     canbus: INFO
 
 external_components:
-  - source: github://dan-s-github/zehnder-comfoair-esp32
+  - source: github://dan-s-github/zehnder-comfoair-can
     components: [ zehnder_comfoair_q  ]
 
 # See docs: https://github.com/michaelarnauts/aiocomfoconnect/blob/master/docs/PROTOCOL-PDO.md

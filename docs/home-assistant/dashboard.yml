@@ -5,74 +5,74 @@ views:
           image: /local/images/ventilation.png
           elements:
             - type: state-label
-              entity: sensor.zehnder_comfoair_q350_fan_level
+              entity: sensor.zehnder_comfoair_can_fan_level
               style:
                 top: 49%
                 left: 73%
                 color: black
                 font-size: 10px
             - type: state-label
-              entity: sensor.zehnder_comfoair_q350_supply_fan_flow
+              entity: sensor.zehnder_comfoair_can_supply_fan_flow
               style:
                 top: 59%
                 left: 73%
                 color: black
             - type: state-label
-              entity: sensor.zehnder_comfoair_q350_exhaust_fan_flow
+              entity: sensor.zehnder_comfoair_can_exhaust_fan_flow
               style:
                 top: 59%
                 left: 27%
                 color: black
             - type: state-label
-              entity: sensor.zehnder_comfoair_q350_extract_air_temperature
+              entity: sensor.zehnder_comfoair_can_extract_air_temperature
               style:
                 top: 20%
                 left: 91%
                 color: darkred
             - type: state-label
-              entity: sensor.zehnder_comfoair_q350_extract_air_humidity
+              entity: sensor.zehnder_comfoair_can_extract_air_humidity
               style:
                 top: 28%
                 left: 89%
                 color: '#4171b1'
             - type: state-label
-              entity: sensor.zehnder_comfoair_q350_supply_air_temperature
+              entity: sensor.zehnder_comfoair_can_supply_air_temperature
               style:
                 top: 76.2%
                 left: 91%
                 color: darkred
             - type: state-label
-              entity: sensor.zehnder_comfoair_q350_supply_air_humidity
+              entity: sensor.zehnder_comfoair_can_supply_air_humidity
               style:
                 top: 84.6%
                 left: 89%
                 color: '#4171b1'
             - type: state-label
-              entity: sensor.zehnder_comfoair_q350_outdoor_air_temperature
+              entity: sensor.zehnder_comfoair_can_outdoor_air_temperature
               style:
                 top: 20%
                 left: 13%
                 color: '#4171b1'
             - type: state-label
-              entity: sensor.zehnder_comfoair_q350_outdoor_air_humidity
+              entity: sensor.zehnder_comfoair_can_outdoor_air_humidity
               style:
                 top: 28%
                 left: 11%
                 color: '#4171b1'
             - type: state-label
-              entity: sensor.zehnder_comfoair_q350_exhaust_air_temperature
+              entity: sensor.zehnder_comfoair_can_exhaust_air_temperature
               style:
                 top: 76.2%
                 left: 13%
                 color: '#4171b1'
             - type: state-label
-              entity: sensor.zehnder_comfoair_q350_exhaust_air_humidity
+              entity: sensor.zehnder_comfoair_can_exhaust_air_humidity
               style:
                 top: 84.6%
                 left: 11%
                 color: '#4171b1'
             - type: state-label
-              entity: sensor.zehnder_comfoair_q350_bypass_activation_mode
+              entity: sensor.zehnder_comfoair_can_bypass_activation_mode
               prefix: 'Bypass '
               style:
                 color: black
@@ -80,67 +80,67 @@ views:
                 left: 50%
             - type: conditional
               conditions:
-                - entity: sensor.zehnder_comfoair_q350_bypass_state
+                - entity: sensor.zehnder_comfoair_can_bypass_state
                   state_not: '0'
               elements:
                 - type: state-label
-                  entity: sensor.zehnder_comfoair_q350_bypass_state
+                  entity: sensor.zehnder_comfoair_can_bypass_state
                   style:
                     color: black
                     top: 18%
                     left: 50%
             - type: conditional
               conditions:
-                - entity: sensor.zehnder_comfoair_q350_next_bypass_change_in
+                - entity: sensor.zehnder_comfoair_can_next_bypass_change_in
                   state_not: n/a
               elements:
                 - type: state-label
-                  entity: sensor.zehnder_comfoair_q350_next_bypass_change_in
+                  entity: sensor.zehnder_comfoair_can_next_bypass_change_in
                   style:
                     color: black
                     top: 33%
                     left: 50%
                     font-size: 80%
             - type: state-label
-              entity: sensor.zehnder_comfoair_q350_operating_mode
+              entity: sensor.zehnder_comfoair_can_operating_mode
               style:
                 top: 72%
                 left: 50%
                 color: black
             - type: state-label
-              entity: sensor.zehnder_comfoair_q350_profile_target_temperature
+              entity: sensor.zehnder_comfoair_can_profile_target_temperature
               style:
                 color: black
                 top: 50%
                 left: 50%
             - type: conditional
               conditions:
-                - entity: sensor.zehnder_comfoair_q350_next_fan_change_in
+                - entity: sensor.zehnder_comfoair_can_next_fan_change_in
                   state_not: n/a
               elements:
                 - type: state-label
-                  entity: sensor.zehnder_comfoair_q350_next_fan_change_in
+                  entity: sensor.zehnder_comfoair_can_next_fan_change_in
                   style:
                     color: black
                     top: 80%
                     left: 50%
                     font-size: 80%
             - type: state-label
-              entity: sensor.zehnder_comfoair_q350_filter_replacement_remaining_days
+              entity: sensor.zehnder_comfoair_can_filter_replacement_remaining_days
               prefix: 'Filter change: '
               style:
                 top: 94%
                 left: 50%
                 color: black
             - type: state-label
-              entity: sensor.zehnder_comfoair_q350_power
+              entity: sensor.zehnder_comfoair_can_power
               prefix: 'Power '
               style:
                 top: 6%
                 left: 50%
                 color: black
             - type: state-label
-              entity: sensor.zehnder_comfoair_q350_running_mean_outdoor_temperature
+              entity: sensor.zehnder_comfoair_can_running_mean_outdoor_temperature
               prefix: 'RMOT '
               style:
                 top: 6.5%
@@ -148,7 +148,7 @@ views:
                 color: grey
             - type: conditional
               conditions:
-                - entity: binary_sensor.zehnder_comfoair_q350_heating_season
+                - entity: binary_sensor.zehnder_comfoair_can_heating_season
                   state: 'on'
               elements:
                 - type: icon
@@ -159,7 +159,7 @@ views:
                     left: 5%
             - type: conditional
               conditions:
-                - entity: binary_sensor.zehnder_comfoair_q350_cooling_season
+                - entity: binary_sensor.zehnder_comfoair_can_cooling_season
                   state: 'on'
               elements:
                 - type: icon
@@ -169,58 +169,58 @@ views:
                     top: 6%
                     left: 5%
         - type: tile
-          entity: fan.zehnder_comfoair_q350_fan
+          entity: fan.zehnder_comfoair_can_fan
           features:
             - type: fan-speed
         - type: custom:mushroom-climate-card
-          entity: climate.zehnder_comfoair_q350_climate
+          entity: climate.zehnder_comfoair_can_climate
           show_temperature_control: false
           hvac_modes:
             - heat_cool
             - 'off'
           layout: horizontal
         - type: custom:fold-entity-row
+          title: Zehnder ComfoAir CAN
           head:
             type: section
             label: Controls
           entities:
-            - entity: switch.zehnder_comfoair_q350_auto_ventilation
+            - entity: switch.zehnder_comfoair_can_auto_ventilation
               name: Auto Ventilation
-            - entity: switch.zehnder_comfoair_q350_away_mode
+            - entity: switch.zehnder_comfoair_can_away_mode
               name: Away Mode
-            - entity: button.zehnder_comfoair_q350_boost_12h
+            - entity: button.zehnder_comfoair_can_boost_12h
               name: Boost 12h
-            - entity: button.zehnder_comfoair_q350_boost_15min
+            - entity: button.zehnder_comfoair_can_boost_15min
               name: Boost 15min
-            - entity: button.zehnder_comfoair_q350_boost_2h
+            - entity: button.zehnder_comfoair_can_boost_2h
               name: Boost 2h
-            - entity: button.zehnder_comfoair_q350_boost_30min
+            - entity: button.zehnder_comfoair_can_boost_30min
               name: Boost 30min
-            - entity: button.zehnder_comfoair_q350_boost_4h
+            - entity: button.zehnder_comfoair_can_boost_4h
               name: Boost 4h
-            - entity: button.zehnder_comfoair_q350_boost_60min
+            - entity: button.zehnder_comfoair_can_boost_60min
               name: Boost 60min
-            - entity: button.zehnder_comfoair_q350_boost_8h
+            - entity: button.zehnder_comfoair_can_boost_8h
               name: Boost 8h
-            - entity: button.zehnder_comfoair_q350_boost_off
+            - entity: button.zehnder_comfoair_can_boost_off
               name: Boost off
-            - entity: button.zehnder_comfoair_q350_bypass_auto
+            - entity: button.zehnder_comfoair_can_bypass_auto
               name: Bypass Auto
-            - entity: button.zehnder_comfoair_q350_bypass_off_1h
+            - entity: button.zehnder_comfoair_can_bypass_off_1h
               name: Bypass Off (1h)
-            - entity: button.zehnder_comfoair_q350_bypass_on_1h
+            - entity: button.zehnder_comfoair_can_bypass_on_1h
               name: Bypass On (1h)
-            - entity: fan.zehnder_comfoair_q350_fan
+            - entity: fan.zehnder_comfoair_can_fan
               name: Fan
-            - entity: select.zehnder_comfoair_q350_fan_speed
+            - entity: select.zehnder_comfoair_can_fan_speed
               name: Fan Speed
-            - entity: select.zehnder_comfoair_q350_humidity_comfort
+            - entity: select.zehnder_comfoair_can_humidity_comfort
               name: Humidity Comfort
-            - entity: select.zehnder_comfoair_q350_humidity_protection
+            - entity: select.zehnder_comfoair_can_humidity_protection
               name: Humidity Protection
-            - entity: select.zehnder_comfoair_q350_temperature_passive
+            - entity: select.zehnder_comfoair_can_temperature_passive
               name: Temperature Passive
-            - entity: select.zehnder_comfoair_q350_temperature_profile
+            - entity: select.zehnder_comfoair_can_temperature_profile
               name: Temperature Profile
-          title: Zehnder ComfoAir Q350
-  
+          

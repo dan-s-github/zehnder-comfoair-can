@@ -59,7 +59,7 @@ This uses esphome to prepare the atom lite for home assistant
 5. Device is now ready for customization
  ![ESPHome ready][esphome_ready]
 
-6. Use the [zehnder-comfoair-esp32.yaml](zehnder-comfoair-esp32.yaml) as template to edit your newly created yaml file
+6. Use the [zehnder-comfoair-can.yaml](zehnder-comfoair-can.yaml) as template to edit your newly created yaml file
 
 To be continued...    
 
