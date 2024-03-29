@@ -20,6 +20,7 @@ packages:
       - packages/text_sensors.yml
       - packages/fan.yml
       - packages/climate.yml
+      - packages/diagnostics.yml
 
 esphome:
   name: ${name}
@@ -56,6 +57,7 @@ api:
   encryption:
     key: "5wqUYCw5MwKhuU/c7KL2+JCCe9JIe57CmTuhYhQ/BYM="
 
+# Allow Over-The-Air updates
 ota:
 
 wifi:
@@ -65,7 +67,7 @@ wifi:
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
     ssid: "${name}-fallback"
-    password: "9fe5gQPRfKeL"
+    password: !secret fallback_hotspot_password
 
 captive_portal:
 
