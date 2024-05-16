@@ -13,29 +13,21 @@ climate:
     min_cooling_off_time: 1s
     min_cooling_run_time: 1s
     min_idle_time: 1s
-    supplemental_cooling_delta: 0.5
-    max_cooling_run_time: 119min
-    supplemental_cooling_action:
-      # only boost if outdoor_air_temperature is 2 or more degrees lower than extract_air_temperature
-      - if:
-          condition:
-            lambda: return id(extract_air_temp).state - id(outdoor_air_temp).state > 2;
-          then:
-            - select.set:
-                id: fan_level_select
-                option: "Medium"
-    cool_deadband: 0.5
-    cool_overrun: 0.5
+    cool_deadband: 0.1
+    cool_overrun: 0.1
     heat_deadband: 0.1
     heat_overrun: 0.1
-    default_preset: Summer
+    default_preset: home
     preset:
-      - name: Summer
-        default_target_temperature_low: 20 °C
-        default_target_temperature_high: 21 °C
-      - name: Sleep
-        default_target_temperature_low: 19.5 °C
-        default_target_temperature_high: 20.5 °C
+      - name: comfort
+        default_target_temperature_low: 23 °C
+        default_target_temperature_high: 24 °C
+      - name: home
+        default_target_temperature_low: 22 °C
+        default_target_temperature_high: 23 °C
+      - name: cool
+        default_target_temperature_low: 21 °C
+        default_target_temperature_high: 22 °C
     heat_action:
       - select.set:
           id: temperature_profile_select

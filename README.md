@@ -1,20 +1,31 @@
 # Zehnder Comfoair Q ESPHome
 
-This project uses the [m5stack Canbus Kit](https://shop.m5stack.com/products/atom-canbus-kit-ca-is3050g) to interact with the Zehnder ComfoAir Q ventilation unit.
+This project uses the [m5stack ATOM Lite](https://shop.m5stack.com/products/atom-lite-esp32-development-kit) Controller as core component
 
-  ![M5STACK CAN][m5stack_can]
+  ![m5stack_atom]
 
-It is based on this repo: https://github.com/yoziru/esphome-zehnder-comfoair which uses an [Olimex ESP32-EVB](https://github.com/OLIMEX/ESP32-EVB) with CAN interface.
+either as part of the [m5stack Canbus Kit](https://shop.m5stack.com/products/atom-canbus-kit-ca-is3050g) to interact with the Zehnder ComfoAir Q ventilation unit 
+
+  ![m5stack_can]
+
+or using a custom pcb based on [vekexasia](https://github.com/vekexasia/comfoair-esp32/issues/49#issuecomment-1578201546) schematics. 
+All required manufaturing documents have been added to [docs/pcb](docs/pcb/)
+
+  ![custom_bare]
+
+Sourcecode is based on this repo: https://github.com/yoziru/esphome-zehnder-comfoair which uses an [Olimex ESP32-EVB](https://github.com/OLIMEX/ESP32-EVB) with CAN interface.
 
 Needs at least ESPHome 2022.5.0 (since it depends on some CAN bus component updates).
 
 - It exposes all known information and airflow control through the [ESPHome native API](https://esphome.io/components/api.html).
-- It allows you to integrate the unit in Home Assistant as depicted below using following custom cards:
-    - custom:mushroom-climate-card
-    - custom:fold-entity-row
-
+- It allows you to integrate the unit in Home Assistant as depicted below using following custom card:
+    - `custom:fold-entity-row`
 
   ![Home Assistant closed][ha_dashboard_top]
+
+  I now use the thermostat card instead of the `custom:mushroom-climate-card`
+
+  ![Home Assistant thermostat][ha_dashboard_thermostat]
 
   ![Home Assistant open][ha_dashboard_bottom]
  
@@ -22,12 +33,9 @@ You can find the sample configuration YAML and image in the [`docs/home-assistan
 
 ## Components
 
-- m5stack Canbus Kit
-- 5V power supply 
-  - standdard usb power adapter
-  - [step-down converter](https://www.aliexpress.com/item/1005002797242220.html) \
-    [usb-c connector](https://www.aliexpress.com/item/1005005068786615.html) (2pin type-c male)
-- Any ethernet cable (RJ45 connector)
+- m5stack Atom Lite
+- one of the Hardware options
+- Any ethernet cable (RJ45 connector) or a 4 core cable
 - A USB-C cable to connect the m5stack Atom Lite to your computer
 
 ### Prepare Atom Lite
@@ -66,39 +74,13 @@ This uses esphome to prepare the atom lite for home assistant
 
 ### Hardware
 
-1. Strip one side of the ethernet cable
-2. Connect the orange, white-orange, white-green wires to the `m5stack can` connector (see diagram + pictures below).
-3. Connect the blue and white-green to the step-down converter
-4. Connect the usb-c connector to the m5stack atom controller
-5. Connect the other side of the cable to the RJ45 port of the ventilation unit (located at the top, behind the sliding cover).
+ Option 1: [Using m5stack Can bus kit](M5STACK_CAN_BUS_KIT.md)
+ 
+  ![m5stack_can][m5stack_can]
 
+ Option 2: [Using custom pcb](CUSTOM_PCB.md)
 
-### Connection diagram
-
-```
-
-|----------------+ 
-|                | 
-|   [ComfoAir]   | 
-|                |                                           m5stack can
-|                |      +++++++++++++++++++++            +-----------------+
-|           RJ45 o------|   (orange)  CAN-H o------------o CAN-H           |
-|----------------+      | (w/orange)  CAN-L o------------o CAN-L   usb-c   O-----+
-                        |  (w/green)    GND o-------+----o GND             |     |
-                        |     (blue)   +12V o---+   |    +-----------------+     |
-                        +++++++++++++++++++++   |   |                            |
-                                                |   |    +-----------+           |
-                                                |   +----o           o----+      |
-                                                |        |  Mini560  |    +------+
-                                                +--------o           o----+ 
-                                                         +-----------+
-```
-
-Here some pictures of the current setup connected to the Zehnder ComfoAir Q
-
-![m5stack with step-down converter][m5stack_mini560]
-![m5stack test installation][m5stack_installed]
-
+  ![custom_atom][custom_atom]
 
 ## Credits
 
@@ -118,12 +100,16 @@ A lot of this repo was inspired by the reverse engineering [here](https://github
 - [RMI PROTOCOL](https://github.com/michaelarnauts/aiocomfoconnect/blob/master/docs/PROTOCOL-RMI.md)
 - [PDO PROTOCOL](https://github.com/michaelarnauts/aiocomfoconnect/blob/master/docs/PROTOCOL-PDO.md)
 
-
 [ha_dashboard_top]: ./docs/ha_dashboard_top.png
 [ha_dashboard_bottom]: ./docs/ha_dashboard_bottom.png
-[m5stack_can]: ./docs/m5stack.png
-[m5stack_mini560]: ./docs/m5stack_mini560.png
-[m5stack_installed]: ./docs/m5stack_installed.png
+[ha_dashboard_thermostat]: ./docs/ha_dashboard_thermostat.png
+
+[m5stack_atom]: ./docs/m5stack_atom.png
+[m5stack_can]: ./docs/m5stack_can_kit.png
+
+[custom_bare]: ./docs/custom_pcb_bare.png
+[custom_atom]: ./docs/custom_pcb_incl_atom.png
+
 [esphome_adopt]: ./docs/esphome_adopt.png
 [esphome_rename]: ./docs/esphome_rename.png
 [esphome_ready]: ./docs/esphome_ready.png
