@@ -1,0 +1,12 @@
+[project]
+name = "zehnder-comfoair-can"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "esphome==2026.7.0",
+]
+
+[tool.uv]
+environments = [
+    "platform_machine == 'arm64' and sys_platform == 'darwin'",
+]

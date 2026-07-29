@@ -3,3 +3,5 @@ zehnder-comfoair-can.code-workspace
 .vscode
 secrets.yaml
 __pycache__
+.venv
+uv.lock
